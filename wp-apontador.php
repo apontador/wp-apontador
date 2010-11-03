@@ -18,11 +18,15 @@ require_once("ApontadorApiLib.php");
 
 add_action('widgets_init', 'ApontadorInit');
 add_filter('init','ApontadorGetParms');
+add_action('wp_footer', 'wp_apontador_footer');
 // create custom plugin settings menu
 add_action('admin_menu', 'apontador_create_menu');
 $plugin_dir = basename(dirname(__FILE__));
 load_plugin_textdomain( 'wp-apontador', null, $plugin_dir );
 
+function wp_apontador_footer() {
+  echo '<div id="apontadorfooter" align="center"><small>Powered by</small><a href="http://www.apontador.com.br"><img border="0" src="' . plugins_url('/images/apontador.png', __FILE__) . '"></a></div>' ;
+}
 
 class ApontadorWidget extends WP_Widget
 {
@@ -57,6 +61,8 @@ class ApontadorWidget extends WP_Widget
     
     # Make the Hello World Example widget
       echo '<div style="text-align:left;padding:10px;" id="apontador-widget">' ;
+
+	    
     
     $params['limit']=$howMany;
     $params['type']='json';
