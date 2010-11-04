@@ -1,0 +1,76 @@
+<div class="wrap">
+  <h2>Apontador Plugin</h2>
+  <form method="post" action="options.php">
+
+<?php if (!$oauth_secret): ?>
+
+  <?php _e('click') ?> <a href="<?php echo admin_url("admin.php?page=wp-apontador.php&request_auth=1"); ?>"><?php _e('here') ?></a>
+  <?php _e('to request an authorization token'); ?>
+
+<?php else: ?>
+
+  <?php _e('Authenticated as') ?> <br />;
+  <div >
+    <img style="margin-right:10px;" align="left" width="64" height="64" src="' . $user['user']['photo_url'] . '">';
+    <p>
+      <strong><?php echo $user['user']['name']; ?></strong><br />
+      <?php echo printf(_n("%d review", "%d reviews", $user['user']['stats']['reviews'])); ?><br />
+      <?php echo printf(_n("%d photo", "%d photos", $user['user']['stats']['photos'])); ?><br />
+      <?php echo printf(_n("%d place", "%d places", $user['user']['stats']['places'])); ?><br />
+    </p>
+  </div>
+  <?php _e("click"); ?><a href="<?php echo get_admin_url("wp-apontador.php&request_auth=1"); ?>"><?php _e(' here '); ?></a>
+  <?php _e('to request a new authorization token'); ?>
+
+<?php endif; ?>
+
+    <table class="form-table">
+      <tr>
+      <th colspan=2>
+        <?php _e("Getting your own Consumer Key and Consumer secret for your blog is highly recommended.") . '<BR/>'. __("Create a 'new application' by editting your profile at apontador") .',<BR/>' . __("there you can enter your website data and get your own key and secret pair"); ?>
+      </th>
+    </tr>
+    <tr valign="top">
+      <th scope="row">
+        <strong>Consumer Key</strong>
+      </th>
+      <td>
+        <input type="text" name="consumer_key" value="<?php echo $consumer_key; ?>"/>
+      </td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">
+        <strong>Consumer Secret</strong>
+      </th>
+      <td>
+        <input type="text" name="consumer_secret" value="<?php echo $consumer_secret; ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <th colspan=2>
+        <?php _e("The following codes are automagically generated, you don't need to worry about them") ?> 
+      </th>
+    </tr>
+    <tr valign="top">
+      <th scope="row">
+        <strong>OAuth Token</strong>
+      </th>
+      <td>
+        <input type="text" name="oauth_token" value="<?php echo $oauth_token ?>" />
+      </td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">
+        <strong>OAuth Secret</strong>
+      </th>
+      <td>
+        <input type="text" name="oauth_secret" value="<?php echo $oauth_secret; ?>"/>
+      </td>
+    </tr>
+  </table>
+
+  <p class="submit">
+    <input type="submit" class="button-primary" value="<?php _e("Save Changes"); ?>" />
+  </p>
+  </form>
+</div>
