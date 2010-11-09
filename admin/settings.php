@@ -4,22 +4,22 @@
 
 <?php if (!$oauth_secret): ?>
 
-  <?php _e('click') ?> <a href="<?php echo admin_url("admin.php?page=wp-apontador.php&request_auth=1"); ?>"><?php _e('here') ?></a>
+  <?php _e('click') ?> <a href="<?php echo admin_url("admin.php?page=wp-apontador/wp-apontador.php&request_auth=1"); ?>"><?php _e('here') ?></a>
   <?php _e('to request an authorization token'); ?>
 
 <?php else: ?>
 
-  <?php _e('Authenticated as') ?> <br />;
+  <?php _e('Authenticated as') ?> <br />
   <div >
-    <img style="margin-right:10px;" align="left" width="64" height="64" src="' . $user['user']['photo_url'] . '">';
+	  <img style="margin-right:10px;" align="left" width="64" height="64" src="<?php echo $user['user']['photo_url']; ?> ">
     <p>
       <strong><?php echo $user['user']['name']; ?></strong><br />
-      <?php echo printf(_n("%d review", "%d reviews", $user['user']['stats']['reviews'])); ?><br />
-      <?php echo printf(_n("%d photo", "%d photos", $user['user']['stats']['photos'])); ?><br />
-      <?php echo printf(_n("%d place", "%d places", $user['user']['stats']['places'])); ?><br />
+      <?php echo printf(_n("%d review", "%d reviews", $user['user']['stats']['reviews']), $user['user']['stats']['reviews']); ?><br />
+      <?php echo printf(_n("%d photo", "%d photos", $user['user']['stats']['photos']), $user['user']['stats']['photos']); ?><br />
+      <?php echo printf(_n("%d place", "%d places", $user['user']['stats']['places']), $user['user']['stats']['places']); ?><br />
     </p>
   </div>
-  <?php _e("click"); ?><a href="<?php echo get_admin_url("wp-apontador.php&request_auth=1"); ?>"><?php _e(' here '); ?></a>
+  <?php _e("click"); ?> <a href="<?php echo get_admin_url("admin.php?wp-apontador/wp-apontador.php&request_auth=1"); ?>"><?php _e('here'); ?></a>
   <?php _e('to request a new authorization token'); ?>
 
 <?php endif; ?>
