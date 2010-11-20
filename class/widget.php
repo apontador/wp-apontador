@@ -56,11 +56,11 @@ class ApontadorWidget extends WP_Widget
         for ($cunt=0;$cunt<5;$cunt++) {
           if ($cunt< $item['review']['rating']) {
             echo "<img border=0 src=";
-            echo plugins_url('/images/star.png', __FILE__);
+            echo plugins_url('/images/star.png', dirname(__FILE__));
             echo ">";
       } else {
         echo "<img border=0 src=";
-        echo plugins_url('/images/mptystar.png', __FILE__);
+        echo plugins_url('/images/mptystar.png', dirname(__FILE__));
         echo ">";
       }
       };
