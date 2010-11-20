@@ -111,5 +111,5 @@ function apontador_settings_page() {
     $user=json_decode($content,true);
   }
 
-  include dirname(__FILE__) . "/admin/settings.php";
+  include dirname(__FILE__) . "/admin/settings_page.php";
 }
