@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h2>Apontador Plugin</h2>
+  <h2>Apontador</h2>
   <form method="post" action="<?php menu_page_url("apontador-settings"); ?>">
 
 <?php if ($oauth_secret): ?>
@@ -18,7 +18,7 @@
 <?php endif; ?>
 
   <p>
-    <?php _e("click"); ?> <a href="<?php echo menu_page_url("apontador-settings", false) . "&request_auth=1"; ?>"><?php _e("here"); ?></a>
+    <?php _e("click", "wp-apontador"); ?> <a href="<?php echo menu_page_url("apontador-settings", false) . "&request_auth=1"; ?>"><?php _e("here", "wp-apontador"); ?></a>
     <?php _e("to request a new authorization token", "wp-apontador"); ?>
   </p>
 

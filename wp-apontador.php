@@ -15,4 +15,3 @@ require dirname(__file__) . '/class/apontador.php';
 $apontador = new Apontador();
 add_filter('init', array($apontador, 'init'));
 add_action('widgets_init', array($apontador, 'initWidgets'));
-
