@@ -2,3 +2,4 @@
 *.swo
 .vimrc
 tags
+tests/MockPress/*
