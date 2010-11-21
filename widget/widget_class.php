@@ -3,9 +3,8 @@ class ApontadorWidget extends WP_Widget
 {
   /**
    * Declares the ApontadorWidget class.
-   *
    */
-  function ApontadorWidget(){
+  function ApontadorWidget() {
     $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Apontador Widget") );
     $control_ops = array('width' => 300, 'height' => 300);
     $this->WP_Widget('apontador', __('Apontador Widget'), $widget_ops, $control_ops);
@@ -13,9 +12,10 @@ class ApontadorWidget extends WP_Widget
 
   /**
    * Displays the Widget
-   *
+   * @param array $args WordPress' arguments
+   * @param array $instance User defined instance arguments
    */
-  function widget($args, $instance){
+  function widget($args, $instance) {
     extract($args);
     $title = apply_filters('widget_title', empty($instance['title']) ? 'No Apontador' : $instance['title']);
     $howMany = empty($instance['howMany']) ? '5' : $instance['howMany'];
@@ -63,9 +63,8 @@ class ApontadorWidget extends WP_Widget
 
   /**
    * Saves the widgets settings.
-   *
    */
-  function update($new_instance, $old_instance){
+  function update($new_instance, $old_instance) {
     $instance = $old_instance;
     $instance['title'] = strip_tags(stripslashes($new_instance['title']));
     $instance['howMany'] = (int)$new_instance['howMany'];
@@ -76,21 +75,12 @@ class ApontadorWidget extends WP_Widget
 
   /**
    * Creates the edit form for the widget.
-   *
+   * @param array $instance widget instance data
    */
-  function form($instance){
+  function form($instance) {
     //Defaults
     $instance = wp_parse_args( (array) $instance, array('title'=>'', 'howMany'=>'5') );
 
-    $title = htmlspecialchars($instance['title']);
-    $howMany = htmlspecialchars($instance['howMany']);
-    $maxChars = htmlspecialchars($instance['maxChars']);
-
-    # Output the options
-    echo '<p style="text-align:right;"><label for="' . $this->get_field_name('title') . '">' . __('Title:') . ' <input style="width: 250px;" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></label></p>';
-    # How Many
-    echo '<p style="text-align:right;"><label for="' . $this->get_field_name('howMany') . '">' . __('How Many:') . ' <input style="width: 200px;" id="' . $this->get_field_id('howMany') . '" name="' . $this->get_field_name('howMany') . '" type="text" value="' . $howMany . '" /></label></p>';
-    echo '<p style="text-align:right;"><label for="' . $this->get_field_name('maxChars') . '">' . __('Max Lenght:') . ' <input style="width: 200px;" id="' . $this->get_field_id('maxChars') . '" name="' . $this->get_field_name('maxChars') . '" type="text" value="' . $maxChars . '" /></label></p>';
+    include dirname(__FILE__) . "/form.php";
   }
-
-}// END class
+}
