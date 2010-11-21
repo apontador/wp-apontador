@@ -9,7 +9,7 @@ Author URI: http://labs.lbslocal.com
 	License: Apache
 */
 require dirname(__file__) . '/ApontadorApiLib.php';
-require dirname(__file__) . '/class/widget.php';
+require dirname(__file__) . '/widget/widget_class.php';
 
 // default CONSUMERKEY and CONSUMERSECRET
 define('WPAPONTADORKEY','cXZLsC40GBhRjC7Op1htM9YGExyxnEPk-NjjLaPvdhs~');

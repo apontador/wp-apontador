@@ -30,9 +30,6 @@ class ApontadorWidget extends WP_Widget
     if ( $title )
       echo $before_title . $title . $after_title;
 
-    # Make the Hello World Example widget
-    echo '<div style="text-align:left;padding:10px;" id="apontador-widget">' ;
-
     $params['limit']=$howMany;
     $params['type']='json';
     $metodo='users/self/reviews';
@@ -45,31 +42,19 @@ class ApontadorWidget extends WP_Widget
       $content=apontadorChamaApi($verbo="GET", $metodo, $params, $oauth_token, $oauth_secret,$config);
       $reviews=json_decode($content,true);
 
-      foreach ( $reviews['user']['reviews'] as $item) {
+      foreach ( $reviews['user']['reviews'] as &$item) {
         $params=array();
         $params['type']='json';
         $metodo='places/' . $item['review']['place']['id'];
         $content=apontadorChamaApi("GET", $metodo, $params,null,null,$config);
-        $place=json_decode($content,true);
-
-        echo '<a href="' . $place['place']['main_url'] . '"><b>' . $place['place']['name'] . '</b></a><br>';
-        for ($cunt=0;$cunt<5;$cunt++) {
-          if ($cunt< $item['review']['rating']) {
-            echo "<img border=0 src=";
-            echo plugins_url('/images/star.png', dirname(__FILE__));
-            echo ">";
-      } else {
-        echo "<img border=0 src=";
-        echo plugins_url('/images/mptystar.png', dirname(__FILE__));
-        echo ">";
+        $place = json_decode($content, true);
+        $item['review']['place'] = array_merge($item['review']['place'], $place['place']);
       }
-      };
-      echo "<br>";
-      echo cutstr($item['review']['content'],$maxChars,'...');
-      echo '<a href="http://www.apontador.com.br/local/review/' . $item['review']['place']['id'] . '/' . $item['review']['id'] .'.html"> <small>[Veja Mais!]</small></a><br>';
-      echo "<br>";
-      };
-      echo "</div>";
+
+      $star_tag = "<img src=\"" . plugins_url('/images/star.png', dirname(__FILE__)) . "\" />";
+      $empty_star_tag = "<img src=\"" . plugins_url('/images/mptystar.png', dirname(__FILE__)) . "\" />";
+
+      include dirname(dirname(__FILE__)) . "/widget/page.php";
     }
 
     # After the widget
@@ -83,8 +68,8 @@ class ApontadorWidget extends WP_Widget
   function update($new_instance, $old_instance){
     $instance = $old_instance;
     $instance['title'] = strip_tags(stripslashes($new_instance['title']));
-    $instance['howMany'] = strip_tags(stripslashes($new_instance['howMany']));
-    $instance['maxChars'] = strip_tags(stripslashes($new_instance['maxChars']));
+    $instance['howMany'] = (int)$new_instance['howMany'];
+    $instance['maxChars'] = (int)$new_instance['maxChars'];
 
     return $instance;
   }
