@@ -35,8 +35,8 @@ class Apontador {
 
     //create new top-level menu
     add_menu_page(
-      __('Apontador Settings'),
-      __('Apontador Settings'),
+      __("Apontador", "wp-apontador"),
+      __('Apontador Settings', "wp-apontador"),
       'administrator',
       __FILE__,
       array($this, 'settingsPage'),

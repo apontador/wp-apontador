@@ -7,9 +7,9 @@ class ApontadorWidget extends WP_Widget
    * Declares the ApontadorWidget class.
    */
   function ApontadorWidget() {
-    $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Display your reviews from Apontador") );
+    $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Display your reviews from Apontador", "wp-apontador") );
     $control_ops = array('width' => 300, 'height' => 300);
-    $this->WP_Widget('apontador', __('Apontador Reviews'), $widget_ops, $control_ops);
+    $this->WP_Widget('apontador', __('Apontador Reviews', "wp-apontador"), $widget_ops, $control_ops);
   }
 
   /**
@@ -39,7 +39,7 @@ class ApontadorWidget extends WP_Widget
     $config['secret']=get_option('consumer_secret');
 
     if (! $oauth_token) {
-      _e('please, edit wp-apontador settings in your admin page');
+      _e("please, edit wp-apontador settings in your admin page", "wp-apontador");
     } else {
       $content=apontadorChamaApi($verbo="GET", $metodo, $params, $oauth_token, $oauth_secret,$config);
       $reviews=json_decode($content,true);
