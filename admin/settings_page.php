@@ -1,15 +1,10 @@
 <div class="wrap">
   <h2>Apontador Plugin</h2>
-  <form method="post" action="options.php">
+  <form method="post" action="<?php menu_page_url("apontador-settings"); ?>">
 
-<?php if (!$oauth_secret): ?>
+<?php if ($oauth_secret): ?>
 
-  <?php _e('click') ?> <a href="<?php echo admin_url("admin.php?page=wp-apontador/wp-apontador.php&request_auth=1"); ?>"><?php _e('here') ?></a>
-  <?php _e('to request an authorization token'); ?>
-
-<?php else: ?>
-
-<?php _e('Authenticated as') ?> <br />
+  <p><?php _e("Authenticated as", "wp-apontador") ?></p>
   <div >
 	  <img style="margin-right:10px;" align="left" width="64" height="64" src="<?php echo $user['user']['photo_url']; ?> ">
     <p>
@@ -19,15 +14,18 @@
       <?php printf(_n("%d place", "%d places", $user['user']['stats']['places']), $user['user']['stats']['places']); ?><br />
     </p>
   </div>
-  <?php _e("click"); ?> <a href="<?php echo admin_url("admin.php?wp-apontador/wp-apontador.php&request_auth=1"); ?>"><?php _e('here'); ?></a>
-  <?php _e('to request a new authorization token'); ?>
 
 <?php endif; ?>
 
-    <table class="form-table">
-      <tr>
+  <p>
+    <?php _e("click"); ?> <a href="<?php echo menu_page_url("apontador-settings", false) . "&request_auth=1"; ?>"><?php _e("here"); ?></a>
+    <?php _e("to request a new authorization token", "wp-apontador"); ?>
+  </p>
+
+  <table class="form-table">
+    <tr>
       <th colspan=2>
-        <?php _e("Getting your own Consumer Key and Consumer secret for your blog is highly recommended.") . '<BR/>'. __("Create a 'new application' by editting your profile at apontador") .',<BR/>' . __("there you can enter your website data and get your own key and secret pair"); ?>
+        <?php _e("Getting your own Consumer Key and Consumer secret for your blog is highly recommended.") . '<BR/>'. __("Create a 'new application' by editting your profile at apontador", "wp-apontador") .',<BR/>' . __("there you can enter your website data and get your own key and secret pair"); ?>
       </th>
     </tr>
     <tr valign="top">

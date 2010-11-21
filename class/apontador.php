@@ -14,7 +14,7 @@ class Apontador {
     );
 
     if ( isset( $_GET['request_auth'] ) ) {
-      $config["callbackurl"] = wp_nonce_url(get_admin_url() . "admin.php?page=wp-apontador/wp-apontador.php&apontador_oauth=1");
+      $config["callbackurl"] = wp_nonce_url(admin_url('?page=apontador-settings') . "&apontador_oauth=1");
       apontadorRedirectAutorizacao($config);
     }
 
@@ -34,11 +34,11 @@ class Apontador {
   function createMenu() {
 
     //create new top-level menu
-    add_menu_page(
-      __('Apontador Settings'),
-      __('Apontador Settings'),
+    $n = add_menu_page(
+      __("Apontador", "wp-apontador"),
+      __('Apontador Settings', "wp-apontador"),
       'administrator',
-      __FILE__,
+      "apontador-settings",
       array($this, 'settingsPage'),
       plugins_url('/images/icon.png', dirname(__FILE__))
     );
@@ -94,6 +94,6 @@ class Apontador {
       update_option('user_id',$access_token['user_id']);
 
       //had to do this in order to get rid of the GET parameters in the URl or "save changes" would trigger the authorization again and again, there's probably a better way to do it (tm)
-      header("Location: " . get_admin_url() . 'admin.php?page=wp-apontador/wp-apontador.php');
+      header("Location: " . admin_url('?page=apontador-settings'));
   }
 }
