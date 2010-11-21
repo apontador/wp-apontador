@@ -15,9 +15,15 @@
   <?php echo str_repeat($empty_star_tag, 5 - (int)$item['review']['rating']); ?>
 
   <p>
-    <?php echo cutstr($item['review']['content'], $maxChars, '...'); ?>
+    <?php echo $this->limit_str($item['review']['content'], $maxChars, '...'); ?>
     <a href="http://www.apontador.com.br/local/review/<?php echo $item['review']['place']['id'] . "/" . $item['review']['id']; ?>.html">mais</a>
   </p>
 
-  <?php endforeach;  endif; ?>
+  <?php endforeach; ?>
+
+  <span class="alignright">
+    Powred By <a href="http://apontador.com.br">Apontador</a>
+  </span>
+
+  <?php endif; ?>
 </div>

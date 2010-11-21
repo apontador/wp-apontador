@@ -1,13 +1,15 @@
 <?php
 class ApontadorWidget extends WP_Widget
 {
+
+
   /**
    * Declares the ApontadorWidget class.
    */
   function ApontadorWidget() {
-    $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Apontador Widget") );
+    $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Display your reviews from Apontador") );
     $control_ops = array('width' => 300, 'height' => 300);
-    $this->WP_Widget('apontador', __('Apontador Widget'), $widget_ops, $control_ops);
+    $this->WP_Widget('apontador', __('Apontador Reviews'), $widget_ops, $control_ops);
   }
 
   /**
@@ -82,5 +84,24 @@ class ApontadorWidget extends WP_Widget
     $instance = wp_parse_args( (array) $instance, array('title'=>'', 'howMany'=>'5') );
 
     include dirname(__FILE__) . "/form.php";
+  }
+
+  /**
+   * A helper function to limit reviews text
+   * @param string $str The text to be limited
+   * @param integer $length The length of the string to be displayed
+   * @param $more_link_text Text of the "more" link
+   * @return string
+   */
+  private function limit_str($str, $length, $more_link_text='') {
+    if (strlen($str) > $length) {
+      if (!$more_link_text) {
+        $more_link_text = __('more');
+      }
+
+      return substr($str, 0, $length) . $more_link_text;
+    }
+
+    return $str;
   }
 }
