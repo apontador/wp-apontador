@@ -62,22 +62,22 @@ msgstr ""
 #, php-format
 msgid "%d review"
 msgid_plural "%d reviews"
-msgstr[0] "%d avaliação"
-msgstr[1] "%d avaliações"
+msgstr[0] ""
+msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:13
 #, php-format
 msgid "%d photo"
 msgid_plural "%d photos"
-msgstr[0] "%d foto"
-msgstr[1] "%d fotos"
+msgstr[0] ""
+msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:14
 #, php-format
 msgid "%d place"
 msgid_plural "%d place"
-msgstr[0] "%d local"
-msgstr[1] "%d locais"
+msgstr[0] ""
+msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:21
 msgid "click"
