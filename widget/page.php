@@ -2,7 +2,7 @@
 
   <?php if (!$oauth_token): ?>
 
-  <p><?php _e('please, edit wp-apontador settings in your admin page'); ?></p>
+  <p><?php _e("please, edit wp-apontador settings in your admin page", "wp-apontador"); ?></p>
 
   <?php else: foreach ( $reviews['user']['reviews'] as $item ): ?>
 

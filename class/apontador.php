@@ -8,6 +8,8 @@ class Apontador {
   }
 
   function init() {
+    load_plugin_textdomain( "wp-apontador", false, dirname(dirname(plugin_basename(__FILE__))) . "/languages" );
+
     $config = array(
       'key'    => get_option('consumer_key'),
       'secret' => get_option('consumer_secret'),
@@ -22,8 +24,6 @@ class Apontador {
       $this->updateAuth($config);
     }
 
-
-    load_plugin_textdomain( 'wp-apontador', false, dirname(__FILE__) );
     add_action('admin_menu', array($this, 'createMenu'));
   }
 
@@ -35,8 +35,8 @@ class Apontador {
 
     //create new top-level menu
     $n = add_menu_page(
-      __("Apontador", "wp-apontador"),
       __('Apontador Settings', "wp-apontador"),
+      __("Apontador", "wp-apontador"),
       'administrator',
       "apontador-settings",
       array($this, 'settingsPage'),

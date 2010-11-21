@@ -1,0 +1,119 @@
+# wp-apontador plugin l10n.
+# Copyright (C) 2010 Apontador 
+# This file is distributed under the same license as the wp-apontador package.
+# Renan Ivo <renanivom@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2010-11-21 01:54-0200\n"
+"PO-Revision-Date: 2010-11-21 01:59-0200\n"
+"Last-Translator: Renan Ivo <renanivom@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin/settings_page.php:7
+msgid "Authenticated as"
+msgstr "Autenticado como"
+
+#: admin/settings_page.php:12
+#, php-format
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d avaliação"
+msgstr[1] "%d avaliações"
+
+#: admin/settings_page.php:13
+#, php-format
+msgid "%d photo"
+msgid_plural "%d photos"
+msgstr[0] "%d foto"
+msgstr[1] "%d fotos"
+
+#: admin/settings_page.php:14
+#, php-format
+msgid "%d place"
+msgid_plural "%d places"
+msgstr[0] "%d local"
+msgstr[1] "%d locais"
+
+#: admin/settings_page.php:21
+msgid "click"
+msgstr "clique"
+
+#: admin/settings_page.php:21
+msgid "here"
+msgstr "aqui"
+
+#: admin/settings_page.php:22
+msgid "to request a new authorization token"
+msgstr "para obter uma nova chave de autorização"
+
+#: admin/settings_page.php:28
+msgid ""
+"Getting your own Consumer Key and Consumer secret for your blog is highly "
+"recommended."
+msgstr ""
+"Obter sua própria 'Consumer Key' e 'Consumer Secret' para seu blog é "
+"altamente recomendado"
+
+#: admin/settings_page.php:28
+msgid "Create a \"new application\" by editting your profile at apontador"
+msgstr "Crie uma \"nova aplicação\" editando seu perfil no apontador"
+
+#: admin/settings_page.php:28
+msgid ""
+"there you can enter your website data and get your own key and secret pair"
+msgstr ""
+"você poderá inserir os dados do seu site e obter seus próprios"
+"<em>consumer key</em> e <em>secret</em>"
+
+#: admin/settings_page.php:49
+msgid ""
+"The following codes are automagically generated, you don't need to worry "
+"about them"
+msgstr ""
+"Os códigos a seguir foram gerados <em>automagicamente</em>, você não precisa "
+"se preocupar com eles"
+
+#: admin/settings_page.php:71
+msgid "Save Changes"
+msgstr ""
+
+#: class/apontador.php:38
+msgid "Apontador"
+msgstr ""
+
+#: class/apontador.php:39
+msgid "Apontador Settings"
+msgstr "Configurações do Plugin do Apontador"
+
+#: widget/form.php:2
+msgid "Title:"
+msgstr ""
+
+#: widget/form.php:6
+msgid "How Many:"
+msgstr "Quantidade:"
+
+#: widget/form.php:10
+msgid "Max Length:"
+msgstr "Limite de Caracteres:"
+
+#: widget/page.php:5 widget/widget_class.php:42
+msgid "please, edit wp-apontador settings in your admin page"
+msgstr "por favor, edite as configurações do plugin wp-apontador "
+"em seu admin"
+
+#: widget/widget_class.php:10
+msgid "Display your reviews from Apontador"
+msgstr "Mostrar suas avaliações no Apontador"
+
+#: widget/widget_class.php:12
+msgid "Apontador Reviews"
+msgstr "Apontador - Avaliações"
+
+#: widget/widget_class.php:99
+msgid "more"
+msgstr ""
