@@ -22,7 +22,7 @@
   <?php endforeach; ?>
 
   <span class="alignright">
-    Powred By <a href="http://apontador.com.br">Apontador</a>
+    Powred By <a href="http://apontador.com.br" target="_blank"><img src="<?php echo plugins_url('/images/icon.gif', dirname(__FILE__)); ?>" alt="Apontador" title="Apontador" /></a>
   </span>
 
   <?php endif; ?>
