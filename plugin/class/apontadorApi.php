@@ -5,8 +5,9 @@ class ApontadorApi {
 
   private $config;
   private $urls;
+  private $wp_http;
 
-  public function __construct($config = null) {
+  public function __construct($config = null, $wp_http = null) {
     if (is_array($config)) {
       $this->setConfig($config);
     }
@@ -15,6 +16,12 @@ class ApontadorApi {
       'request_token' => "http://api.apontador.com.br/v1/oauth/request_token",
       'authorize' => "http://api.apontador.com.br/v1/oauth/authorize",
     );
+
+    if (is_null($wp_http)) {
+      $this->wp_http = new WP_Http();
+    } else {
+      $this->wp_http = $wp_http;
+    }
   }
 
   /**
@@ -22,6 +29,16 @@ class ApontadorApi {
    * in order to obtain the authorization
    */
   function redirectToAuth($callback) {
+    header("Location: " . $this->getAuthUrl($callback));
+  }
+
+  /**
+   * Returns the authorization url
+   *
+   * @param string $callback A callback URL to redirect back
+   * @return string
+   */
+  function getAuthUrl($callback) {
     $consumer = new OAuthConsumer($this->config['key'], $this->config['secret']);
 
     $request = OAuthRequest::from_consumer_and_token(
@@ -32,16 +49,15 @@ class ApontadorApi {
     );
 
     $request->sign_request(new OAuthSignatureMethod_HMAC_SHA1(), $consumer, null);
-    $http = new WP_Http();
 
-    $response = $http->request((string)$request);
-    parse_str($response, $request_data);
+    $response = $this->wp_http->request((string)$request);
+    parse_str($response['body'], $response_data);
 
     $oauth_callback_url = http_build_query(array(
       'key' => $this->config['key'],
       'secret' => $this->config['secret'],
-      'token' => $request_data['oauth_token'],
-      'token_secret' => $request_data['oauth_token_secret'],
+      'token' => $response_data['oauth_token'],
+      'token_secret' => $response_data['oauth_token_secret'],
       'endpoint' => urlencode($this->urls['authorize']),
     ));
 
@@ -49,12 +65,10 @@ class ApontadorApi {
       ? $callback . "&" . $oauth_callback_url
       : $callback . "?" . $oauth_callback_url;
 
-    $redirect_url = $this->urls['authorize'] . "?" . http_build_query(array(
+    return $this->urls['authorize'] . "?" . http_build_query(array(
       'oauth_token' => $response_data['oauth_token'],
       'oauth_callback' => urlencode($oauth_callback_url),
     ));
-
-    header("Location: " . $redirect_url);
   }
 
   /**
