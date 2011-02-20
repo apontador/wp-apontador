@@ -11,8 +11,12 @@
   </a>
   <br />
 
-  <?php echo str_repeat($star_tag, (int)$item['review']['rating']); ?>
-  <?php echo str_repeat($empty_star_tag, 5 - (int)$item['review']['rating']); ?>
+  <?php if ($showReviewGrade == 2): ?>
+    <?php echo str_repeat($star_tag, (int)$item['review']['rating']); ?>
+    <?php echo str_repeat($empty_star_tag, 5 - (int)$item['review']['rating']); ?>
+  <?php elseif ($showReviewGrade == 1): ?>
+    <small><?php echo $this->rating_labels[(int)$item['review']['rating']]; ?></small>
+  <?php endif; ?>
 
   <p>
     <?php echo $this->limit_str($item['review']['content'], $maxChars, '...'); ?>

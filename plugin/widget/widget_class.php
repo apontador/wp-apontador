@@ -2,14 +2,23 @@
 class ApontadorWidget extends WP_Widget
 {
 
+  private $rating_labels;
 
   /**
    * Declares the ApontadorWidget class.
    */
-  function ApontadorWidget() {
+  function __construct() {
     $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Display your reviews from Apontador", "wp-apontador") );
     $control_ops = array('width' => 300, 'height' => 300);
     $this->WP_Widget('apontador', __('Apontador Reviews', "wp-apontador"), $widget_ops, $control_ops);
+
+    $this->rating_labels = array(
+      1 => __("terrible", "wp-apontador"),
+      2 => __("bad", "wp-apontador"),
+      3 => __("regular", "wp-apontador"),
+      4 => __("good", "wp-apontador"),
+      5 => __("excelent", "wp-apontador")
+    );
   }
 
   /**
@@ -19,9 +28,9 @@ class ApontadorWidget extends WP_Widget
    */
   function widget($args, $instance) {
     extract($args);
-    $title = apply_filters('widget_title', empty($instance['title']) ? 'No Apontador' : $instance['title']);
-    $howMany = empty($instance['howMany']) ? '5' : $instance['howMany'];
-    $maxChars = empty($instance['maxChars']) ? '160' : $instance['maxChars'];
+    $title = $instance['title'];
+    $howMany = $instance['howMany'];
+    $maxChars = $instance['maxChars'];
     $oauth_token    = get_option('oauth_token');
     $oauth_secret   = get_option('oauth_secret');
 
@@ -68,9 +77,10 @@ class ApontadorWidget extends WP_Widget
    */
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title'] = strip_tags(stripslashes($new_instance['title']));
+    $instance['title'] = apply_filters('widget_title', $new_instance['title']);
     $instance['howMany'] = (int)$new_instance['howMany'];
     $instance['maxChars'] = (int)$new_instance['maxChars'];
+    $instance['showReviewGrade'] = (int)$new_instance['showReviewGrade'];
 
     return $instance;
   }
@@ -81,7 +91,15 @@ class ApontadorWidget extends WP_Widget
    */
   function form($instance) {
     //Defaults
-    $instance = wp_parse_args( (array) $instance, array('title'=>'', 'howMany'=>'5') );
+    $instance = wp_parse_args( 
+      (array) $instance,
+      array(
+        'title'=>'No Apontador',
+        'howMany'=>'5',
+        'showReviewGrade' => 2,
+        'maxChars' => 160
+      )
+    );
 
     include dirname(__FILE__) . "/form.php";
   }
