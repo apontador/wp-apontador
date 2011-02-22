@@ -35,14 +35,6 @@ class ApontadorWidget extends WP_Widget
     $oauth_token = get_option('oauth_token');
     $oauth_secret = get_option('oauth_secret');
 
-    # Before the widget
-    echo $before_widget;
-
-    # The title
-    if ($title) {
-      echo $before_title . $title . $after_title;
-    }
-
     $params['limit']=$howMany;
     $params['type']='json';
     $metodo='users/self/reviews';
@@ -69,9 +61,6 @@ class ApontadorWidget extends WP_Widget
 
       include dirname(dirname(__FILE__)) . "/widget/page.php";
     }
-
-    # After the widget
-    echo $after_widget;
   }
 
   /**

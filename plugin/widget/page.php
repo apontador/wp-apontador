@@ -1,3 +1,9 @@
+<?php echo $before_widget; ?>
+
+<?php echo $before_title; ?>
+  <a href="http://apontador.com.br/profile/index/<?php echo $reviews['user']['id']; ?>.html"><?php echo $title; ?></a>
+<?php echo $after_title; ?>
+
 <div id="apontador-widget">
 
   <?php if (!$oauth_token): ?>
@@ -39,3 +45,5 @@
 
   <?php endif; ?>
 </div>
+
+<?php echo $after_widget; ?>
