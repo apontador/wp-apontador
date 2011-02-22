@@ -7,7 +7,7 @@ class ApontadorWidget extends WP_Widget
   /**
    * Declares the ApontadorWidget class.
    */
-  function __construct() {
+  function ApontadorWidget() {
     $widget_ops = array('classname' => 'apontador_widget', 'description' => __( "Display your reviews from Apontador", "wp-apontador") );
     $control_ops = array('width' => 300, 'height' => 300);
     $this->WP_Widget('apontador', __('Apontador Reviews', "wp-apontador"), $widget_ops, $control_ops);
@@ -31,15 +31,17 @@ class ApontadorWidget extends WP_Widget
     $title = $instance['title'];
     $howMany = $instance['howMany'];
     $maxChars = $instance['maxChars'];
-    $oauth_token    = get_option('oauth_token');
-    $oauth_secret   = get_option('oauth_secret');
+    $showReviewGrade = $instance['showReviewGrade'];
+    $oauth_token = get_option('oauth_token');
+    $oauth_secret = get_option('oauth_secret');
 
     # Before the widget
     echo $before_widget;
 
     # The title
-    if ( $title )
+    if ($title) {
       echo $before_title . $title . $after_title;
+    }
 
     $params['limit']=$howMany;
     $params['type']='json';
@@ -111,13 +113,14 @@ class ApontadorWidget extends WP_Widget
    * @param $more_link_text Text of the "more" link
    * @return string
    */
-  private function limit_str($str, $length, $more_link_text='') {
-    if (strlen($str) > $length) {
+  private function limit_str($review, $length, $more_link_text='') {
+    if (strlen($review['content']) > $length) {
       if (!$more_link_text) {
         $more_link_text = __('more');
       }
 
-      return substr($str, 0, $length) . $more_link_text;
+      return substr($review['content'], 0, $length) . '...'
+        . " <a href=\"{$review['place']['main_url']}#{$review['id']}\">{$more_link_text}</a>";
     }
 
     return $str;

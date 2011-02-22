@@ -10,8 +10,8 @@ Author URI: http://labs.lbslocal.com
 */
 require dirname(__file__) . '/ApontadorApiLib.php';
 require dirname(__file__) . '/widget/widget_class.php';
-require dirname(__file__) . '/class/apontador.php';
+require dirname(__file__) . '/class/apontadorLoader.php';
 
-$apontador = new Apontador();
-add_filter('init', array($apontador, 'init'));
-add_action('widgets_init', array($apontador, 'initWidgets'));
+$apontadorLoader = new ApontadorLoader();
+add_filter('init', array($apontadorLoader, 'init'));
+add_action('widgets_init', array($apontadorLoader, 'initWidgets'));

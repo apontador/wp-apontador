@@ -7,14 +7,10 @@ require_once $plugin_root . "plugin/class/apontadorApi.php";
 class ApontadorApiTest extends PHPUnit_Framework_TestCase {
 
   private $api;
+  private $mockHttp;
 
   function setUp() {
-    $mockHttp = $this->getMock('WP_Http', array('request'));
-    $mockHttp->expects($this->once())
-             ->method('request')
-             ->will($this->returnValue(array(
-                 'body' => "oauth_token=token&oauth_token_secret=secret",
-               )));
+    $this->mockHttp = $this->getMock('WP_Http', array('request'));
 
     $this->api = new ApontadorApi(
       array(
@@ -22,11 +18,16 @@ class ApontadorApiTest extends PHPUnit_Framework_TestCase {
         'key'    => "key",
         'secret' => "secret",
       ),
-      $mockHttp
+      $this->mockHttp
     );
   }
 
   function testAuthUrlShouldHaveQueryStringParameters() {
+    $this->mockHttp->expects($this->once())
+         ->method('request')
+         ->will($this->returnValue(array(
+             'body' => "oauth_token=token&oauth_token_secret=secret",
+           )));
 
     $parsed_url = parse_url($this->api->getAuthUrl("test.url"));
     parse_str($parsed_url['query'], $querystrings);

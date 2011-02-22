@@ -1,5 +1,5 @@
 <?php
-class Apontador {
+class ApontadorLoader {
 
   function __construct() {
     // default CONSUMERKEY and CONSUMERSECRET

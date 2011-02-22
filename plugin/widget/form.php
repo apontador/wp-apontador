@@ -13,8 +13,8 @@
 <p>
   <label for="<?php echo $this->get_field_id('showReviewGrade'); ?>"><?php _e("Show Review Grade:", "wp-apontador"); ?></label>
   <select name="<?php echo $this->get_field_name('showReviewGrade'); ?>" id="<?php echo $this->get_field_id('showReviewGrade'); ?>">
-    <option value="2"<?php echo (int)$instance['maxChars'] == 2 ? " selected=\"selected\"" : ""; ?>><?php _e("as stars", "wp-apontador"); ?></option>
-    <option value="1"<?php echo (int)$instance['maxChars'] == 1 ? " selected=\"selected\"" : ""; ?>><?php _e("as text", "wp-apontador"); ?></option>
-    <option value="0"<?php echo (int)$instance['maxChars'] == 0 ? " selected=\"selected\"" : ""; ?>><?php _e("hide", "wp-apontador"); ?></option>
+    <option value="2"<?php echo (int)$instance['showReviewGrade'] == 2 ? " selected=\"selected\"" : ""; ?>><?php _e("as stars", "wp-apontador"); ?></option>
+    <option value="1"<?php echo (int)$instance['showReviewGrade'] == 1 ? " selected=\"selected\"" : ""; ?>><?php _e("as text", "wp-apontador"); ?></option>
+    <option value="0"<?php echo (int)$instance['showReviewGrade'] == 0 ? " selected=\"selected\"" : ""; ?>><?php _e("hide", "wp-apontador"); ?></option>
   </select>
 </p>
