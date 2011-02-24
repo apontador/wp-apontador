@@ -112,6 +112,6 @@ class ApontadorWidget extends WP_Widget
         . " <a href=\"{$review['place']['main_url']}#{$review['id']}\">{$more_link_text}</a>";
     }
 
-    return $str;
+    return $review['content'];
   }
 }

@@ -5,14 +5,13 @@
 <?php echo $after_title; ?>
 
 <div id="apontador-widget">
-
   <?php if (!$oauth_token): ?>
 
   <p><?php _e("please, edit wp-apontador settings in your admin page", "wp-apontador"); ?></p>
 
   <?php else: ?>
   <ul>
-    <?php foreach ( $reviews['user']['reviews'] as $item ): ?>
+    <?php foreach ( $reviews['user']['reviews'] as &$item ): ?>
 
     <li>
       <a href="<?php echo $item['review']['place']['main_url'] . '#' . $item['review']['id'] ?>">
