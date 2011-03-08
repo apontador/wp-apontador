@@ -11,8 +11,8 @@ class ApontadorLoader {
     load_plugin_textdomain( "wp-apontador", false, dirname(dirname(plugin_basename(__FILE__))) . "/languages" );
 
     $config = array(
-      'key'    => get_option('consumer_key'),
-      'secret' => get_option('consumer_secret'),
+      'key'    => get_option('consumer_key', WPAPONTADORKEY),
+      'secret' => get_option('consumer_secret', WPAPONTADORSECRET),
     );
 
     if ( isset( $_GET['request_auth'] ) ) {
@@ -25,6 +25,18 @@ class ApontadorLoader {
     }
 
     add_action('admin_menu', array($this, 'createMenu'));
+    if (!get_option('oauth_secret', false)) {
+      add_action('admin_notices', array($this, 'configurationNotice'));
+    }
+  }
+
+  function configurationNotice() {
+    $message = __(
+      "Your Apontador plugin configuration seems to be missing or outdated. "
+      . "You can fix it at <a href=\"%s\">plugin's configuration</a>.",
+      "wp_apontador"
+    );
+    echo "<div class=\"updated fade\">" . $message . "</div>";
   }
 
   function initWidgets() {
@@ -40,7 +52,7 @@ class ApontadorLoader {
       'administrator',
       "apontador-settings",
       array($this, 'settingsPage'),
-      plugins_url('/images/icon.png', dirname(__FILE__))
+      plugins_url('/images/icon.gif', dirname(__FILE__))
     );
 
     //call register settings function
@@ -57,26 +69,21 @@ class ApontadorLoader {
 
   function settingsPage() {
     settings_fields( 'apontador-settings-group' ); 
-
-    $oauth_token=get_option('oauth_token');
-    $oauth_secret=get_option('oauth_secret');
-    $consumer_key=get_option('consumer_key');
-    $consumer_secret=get_option('consumer_secret');
-
-    if (!$consumer_key and ! $consumer_secret) {
-      // use the default consumer key and secret
-
-      $consumer_key=WPAPONTADORKEY;
-      $consumer_secret=WPAPONTADORSECRET;
-      update_option('consumer_key',$consumer_key);
-      update_option('consumer_secret',$consumer_secret);
+    if (!empty($_POST)) {
+      update_option('consumer_key', $_POST['consumer_key']);
+      update_option('consumer_secret', $_POST['consumer_secret']);
     }
 
+    $oauth_token = get_option('oauth_token');
+    $oauth_secret = get_option('oauth_secret');
+    $consumer_key = get_option('consumer_key', "");
+    $consumer_secret = get_option('consumer_secret', "");
+
     if ($oauth_secret) {
-      $config['key']=$consumer_key;
-      $config['secret']=$consumer_secret;
-      $metodo='users/self';
-      $params['type']='json';
+      $config['key'] = $consumer_key == "" ? WPAPONTADORKEY : $consumer_key;
+      $config['secret'] = $consumer_secret == "" ? WPAPONTADORSECRET : $consumer_secret;
+      $metodo = 'users/self';
+      $params['type'] = 'json';
 
       $content=apontadorChamaApi("GET", $metodo, $params, $oauth_token, $oauth_secret,$config);
 
