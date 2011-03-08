@@ -5,7 +5,8 @@
 <?php echo $after_title; ?>
 
 <div id="apontador-widget">
-  <?php if (!$oauth_token): ?>
+
+  <?php if (!$oauth_token || is_null($reviews) || !isset($reviews['user'])): ?>
 
   <p><?php _e("please, edit wp-apontador settings in your admin page", "wp-apontador"); ?></p>
 
@@ -38,11 +39,12 @@
     <?php endforeach; ?>
   </ul>
 
+  <?php endif; ?>
+
   <span class="alignright">
-    Powred By <a href="http://api.apontador.com.br" target="_blank"><img src="<?php echo plugins_url('/images/icon.gif', dirname(__FILE__)); ?>" alt="Apontador" title="Apontador" /></a>
+    Powered By <a href="http://api.apontador.com.br" target="_blank"><img src="<?php echo plugins_url('/images/icon.gif', dirname(__FILE__)); ?>" alt="Apontador" title="Apontador" /></a>
   </span>
 
-  <?php endif; ?>
 </div>
 
 <?php echo $after_widget; ?>

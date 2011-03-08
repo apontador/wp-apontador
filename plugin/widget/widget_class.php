@@ -41,26 +41,26 @@ class ApontadorWidget extends WP_Widget
     $config['key']=get_option('consumer_key');
     $config['secret']=get_option('consumer_secret');
 
-    if (! $oauth_token) {
-      _e("please, edit wp-apontador settings in your admin page", "wp-apontador");
-    } else {
+    if ($oauth_token) {
       $content=apontadorChamaApi($verbo="GET", $metodo, $params, $oauth_token, $oauth_secret,$config);
       $reviews=json_decode($content,true);
 
-      foreach ( $reviews['user']['reviews'] as &$item) {
-        $params=array();
-        $params['type']='json';
-        $metodo='places/' . $item['review']['place']['id'];
-        $content=apontadorChamaApi("GET", $metodo, $params,null,null,$config);
-        $place = json_decode($content, true);
-        $item['review']['place'] = array_merge($item['review']['place'], $place['place']);
+      if (isset($reviews['user'])) {
+        foreach ( $reviews['user']['reviews'] as &$item) {
+          $params=array();
+          $params['type']='json';
+          $metodo='places/' . $item['review']['place']['id'];
+          $content=apontadorChamaApi("GET", $metodo, $params,null,null,$config);
+          $place = json_decode($content, true);
+          $item['review']['place'] = array_merge($item['review']['place'], $place['place']);
+        }
       }
-
-      $star_tag = "<img src=\"" . plugins_url('/images/star.png', dirname(__FILE__)) . "\" />";
-      $empty_star_tag = "<img src=\"" . plugins_url('/images/mptystar.png', dirname(__FILE__)) . "\" />";
-
-      include dirname(dirname(__FILE__)) . "/widget/page.php";
     }
+
+    $star_tag = "<img src=\"" . plugins_url('/images/star.png', dirname(__FILE__)) . "\" />";
+    $empty_star_tag = "<img src=\"" . plugins_url('/images/mptystar.png', dirname(__FILE__)) . "\" />";
+
+    include dirname(dirname(__FILE__)) . "/widget/page.php";
   }
 
   /**
