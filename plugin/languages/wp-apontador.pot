@@ -1,64 +1,72 @@
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: WP-Apontador 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 02:30-0300\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Renan ivo <renanivom@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2011-03-08 21:47-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;_n\n"
-"X-Poedit-Basepath: /home/renan/dev/wp-apontador/\n"
-"X-Poedit-SearchPath-0: /home/renan/dev/wp-apontador\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /home/renan/dev/wp-apontador/widget/form.php:2
+#: /home/renan/dev/wp-apontador/widget/form.php:2 plugin/widget/form.php:2
+#: plugin/widget/form.php:2
 msgid "Title:"
 msgstr ""
 
-#: /home/renan/dev/wp-apontador/widget/form.php:6
+#: /home/renan/dev/wp-apontador/widget/form.php:6 plugin/widget/form.php:6
+#: plugin/widget/form.php:6
 msgid "How Many:"
 msgstr ""
 
-#: /home/renan/dev/wp-apontador/widget/form.php:10
+#: /home/renan/dev/wp-apontador/widget/form.php:10 plugin/widget/form.php:10
+#: plugin/widget/form.php:10
 msgid "Max Length:"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/widget/page.php:5
 #: /home/renan/dev/wp-apontador/widget/widget_class.php:42
+#: plugin/widget/page.php:11 plugin/widget/page.php:11
 msgid "please, edit wp-apontador settings in your admin page"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/widget/widget_class.php:10
+#: plugin/widget/widget_class.php:11 plugin/widget/widget_class.php:11
 msgid "Display your reviews from Apontador"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/widget/widget_class.php:12
+#: plugin/widget/widget_class.php:13 plugin/widget/widget_class.php:13
 msgid "Apontador Reviews"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/widget/widget_class.php:99
+#: plugin/widget/page.php:34 plugin/widget/widget_class.php:108
+#: plugin/widget/page.php:34 plugin/widget/widget_class.php:108
 msgid "more"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/class/apontador.php:37
+#: plugin/class/apontadorLoader.php:51 plugin/class/apontadorLoader.php:51
 msgid "Apontador"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/class/apontador.php:38
+#: plugin/class/apontadorLoader.php:50 plugin/class/apontadorLoader.php:50
 msgid "Apontador Settings"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:7
+#: plugin/admin/settings_page.php:7 plugin/admin/settings_page.php:7
 msgid "Authenticated as"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:12
+#: plugin/admin/settings_page.php:22 plugin/admin/settings_page.php:22
 #, php-format
 msgid "%d review"
 msgid_plural "%d reviews"
@@ -66,6 +74,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:13
+#: plugin/admin/settings_page.php:23 plugin/admin/settings_page.php:23
 #, php-format
 msgid "%d photo"
 msgid_plural "%d photos"
@@ -73,6 +82,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:14
+#: plugin/admin/settings_page.php:24 plugin/admin/settings_page.php:24
 #, php-format
 msgid "%d place"
 msgid_plural "%d place"
@@ -80,19 +90,24 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:21
+#: plugin/admin/settings_page.php:32 plugin/admin/settings_page.php:32
 msgid "click"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:21
+#: plugin/admin/settings_page.php:32 plugin/admin/settings_page.php:32
 msgid "here"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:22
+#: plugin/admin/settings_page.php:33 plugin/admin/settings_page.php:33
 msgid "to request a new authorization token"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:28
-msgid "Getting your own Consumer Key and Consumer secret for your blog is highly recommended."
+msgid ""
+"Getting your own Consumer Key and Consumer secret for your blog is highly "
+"recommended."
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:28
@@ -100,14 +115,68 @@ msgid "Create a \"new application\" by editting your profile at apontador"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:28
-msgid "there you can enter your website data and get your own key and secret pair"
+msgid ""
+"there you can enter your website data and get your own key and secret pair"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:49
-msgid "The following codes are automagically generated, you don't need to worry about them"
+msgid ""
+"The following codes are automagically generated, you don't need to worry "
+"about them"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:71
+#: plugin/admin/settings_page.php:61 plugin/admin/settings_page.php:61
 msgid "Save Changes"
 msgstr ""
 
+#: plugin/widget/form.php:14 plugin/widget/form.php:14
+msgid "Show Review Grade:"
+msgstr ""
+
+#: plugin/widget/form.php:16 plugin/widget/form.php:16
+msgid "as stars"
+msgstr ""
+
+#: plugin/widget/form.php:17 plugin/widget/form.php:17
+msgid "as text"
+msgstr ""
+
+#: plugin/widget/form.php:18 plugin/widget/form.php:18
+msgid "hide"
+msgstr ""
+
+#: plugin/widget/widget_class.php:16 plugin/widget/widget_class.php:16
+msgid "terrible"
+msgstr ""
+
+#: plugin/widget/widget_class.php:17 plugin/widget/widget_class.php:17
+msgid "bad"
+msgstr ""
+
+#: plugin/widget/widget_class.php:18 plugin/widget/widget_class.php:18
+msgid "regular"
+msgstr ""
+
+#: plugin/widget/widget_class.php:19 plugin/widget/widget_class.php:19
+msgid "good"
+msgstr ""
+
+#: plugin/widget/widget_class.php:20 plugin/widget/widget_class.php:20
+msgid "excelent"
+msgstr ""
+
+#: plugin/class/apontadorLoader.php:35 plugin/class/apontadorLoader.php:35
+#, php-format
+msgid ""
+"Your Apontador plugin configuration seems to be missing or outdated. You can "
+"fix it at <a href=\"%s\">plugin's configuration</a>."
+msgstr ""
+
+#: plugin/admin/settings_page.php:39 plugin/admin/settings_page.php:39
+msgid ""
+"Getting your own Consumer Key and Consumer secret for your blog is highly "
+"recommended. Create a \"new application\" by <a href=\"http://www.apontador."
+"com.br/accounts/app/create.html\">registering your app</a> at Apontador. "
+"There you can enter your website data and get your own key and secret pair."
+msgstr ""
