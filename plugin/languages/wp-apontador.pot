@@ -1,9 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Apontador 1.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-08 21:47-0300\n"
+"POT-Creation-Date: 2011-04-02 21:52-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,27 +107,6 @@ msgstr ""
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:22
 #: plugin/admin/settings_page.php:33 plugin/admin/settings_page.php:33
 msgid "to request a new authorization token"
-msgstr ""
-
-#: /home/renan/dev/wp-apontador/admin/settings_page.php:28
-msgid ""
-"Getting your own Consumer Key and Consumer secret for your blog is highly "
-"recommended."
-msgstr ""
-
-#: /home/renan/dev/wp-apontador/admin/settings_page.php:28
-msgid "Create a \"new application\" by editting your profile at apontador"
-msgstr ""
-
-#: /home/renan/dev/wp-apontador/admin/settings_page.php:28
-msgid ""
-"there you can enter your website data and get your own key and secret pair"
-msgstr ""
-
-#: /home/renan/dev/wp-apontador/admin/settings_page.php:49
-msgid ""
-"The following codes are automagically generated, you don't need to worry "
-"about them"
 msgstr ""
 
 #: /home/renan/dev/wp-apontador/admin/settings_page.php:71

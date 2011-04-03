@@ -5,7 +5,8 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2010-11-21 01:54-0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-02 21:44-0300\n"
 "PO-Revision-Date: 2010-11-21 01:59-0200\n"
 "Last-Translator: Renan Ivo <renanivom@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,107 +14,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: admin/settings_page.php:7
+#: /home/renan/dev/wp-apontador/widget/form.php:2 plugin/widget/form.php:2
+msgid "Title:"
+msgstr "Título:"
+
+#: /home/renan/dev/wp-apontador/widget/form.php:6 plugin/widget/form.php:6
+msgid "How Many:"
+msgstr "Quantidade:"
+
+#: /home/renan/dev/wp-apontador/widget/form.php:10 plugin/widget/form.php:10
+msgid "Max Length:"
+msgstr "Limite de Caracteres:"
+
+#: /home/renan/dev/wp-apontador/widget/page.php:5
+#: /home/renan/dev/wp-apontador/widget/widget_class.php:42
+#: plugin/widget/page.php:11
+msgid "please, edit wp-apontador settings in your admin page"
+msgstr "por favor, edite as configurações do plugin wp-apontador em seu admin"
+
+#: /home/renan/dev/wp-apontador/widget/widget_class.php:10
+#: plugin/widget/widget_class.php:11
+msgid "Display your reviews from Apontador"
+msgstr "Mostrar suas avaliações no Apontador"
+
+#: /home/renan/dev/wp-apontador/widget/widget_class.php:12
+#: plugin/widget/widget_class.php:13
+msgid "Apontador Reviews"
+msgstr "Apontador - Avaliações"
+
+#: /home/renan/dev/wp-apontador/widget/widget_class.php:99
+#: plugin/widget/page.php:34 plugin/widget/widget_class.php:108
+msgid "more"
+msgstr "mais"
+
+#: /home/renan/dev/wp-apontador/class/apontador.php:37
+#: plugin/class/apontadorLoader.php:51
+msgid "Apontador"
+msgstr ""
+
+#: /home/renan/dev/wp-apontador/class/apontador.php:38
+#: plugin/class/apontadorLoader.php:50
+msgid "Apontador Settings"
+msgstr "Configurações do Plugin do Apontador"
+
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:7
+#: plugin/admin/settings_page.php:7
 msgid "Authenticated as"
 msgstr "Autenticado como"
 
-#: admin/settings_page.php:12
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:12
+#: plugin/admin/settings_page.php:22
 #, php-format
 msgid "%d review"
 msgid_plural "%d reviews"
 msgstr[0] "%d avaliação"
 msgstr[1] "%d avaliações"
 
-#: admin/settings_page.php:13
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:13
+#: plugin/admin/settings_page.php:23
 #, php-format
 msgid "%d photo"
 msgid_plural "%d photos"
 msgstr[0] "%d foto"
 msgstr[1] "%d fotos"
 
-#: admin/settings_page.php:14
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:14
+#: plugin/admin/settings_page.php:24
 #, php-format
 msgid "%d place"
-msgid_plural "%d places"
+msgid_plural "%d place"
 msgstr[0] "%d local"
 msgstr[1] "%d locais"
 
-#: admin/settings_page.php:21
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:21
+#: plugin/admin/settings_page.php:32
 msgid "click"
 msgstr "clique"
 
-#: admin/settings_page.php:21
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:21
+#: plugin/admin/settings_page.php:32
 msgid "here"
 msgstr "aqui"
 
-#: admin/settings_page.php:22
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:22
+#: plugin/admin/settings_page.php:33
 msgid "to request a new authorization token"
 msgstr "para obter uma nova chave de autorização"
 
-#: admin/settings_page.php:28
+#: /home/renan/dev/wp-apontador/admin/settings_page.php:71
+#: plugin/admin/settings_page.php:61
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#: plugin/widget/form.php:14
+msgid "Show Review Grade:"
+msgstr "Mostrar Nota das Avaliações:"
+
+#: plugin/widget/form.php:16
+msgid "as stars"
+msgstr "como estrelas"
+
+#: plugin/widget/form.php:17
+msgid "as text"
+msgstr "como texto"
+
+#: plugin/widget/form.php:18
+msgid "hide"
+msgstr "ocultar"
+
+#: plugin/widget/widget_class.php:16
+msgid "terrible"
+msgstr "péssimo"
+
+#: plugin/widget/widget_class.php:17
+msgid "bad"
+msgstr "ruim"
+
+#: plugin/widget/widget_class.php:18
+msgid "regular"
+msgstr "regular"
+
+#: plugin/widget/widget_class.php:19
+msgid "good"
+msgstr "bom"
+
+#: plugin/widget/widget_class.php:20
+msgid "excelent"
+msgstr "excelente"
+
+#: plugin/class/apontadorLoader.php:35
+#, php-format
+msgid ""
+"Your Apontador plugin configuration seems to be missing or outdated. You can "
+"fix it at <a href=\"%s\">plugin's configuration</a>."
+msgstr ""
+"As configurações do plugin do Apontador parecem estar desatualizadas. Você "
+"pode consertar isto em <a href=\"%s\">plugin's configuration</a>."
+
+#: plugin/admin/settings_page.php:39
 msgid ""
 "Getting your own Consumer Key and Consumer secret for your blog is highly "
-"recommended."
+"recommended. Create a \"new application\" by <a href=\"http://www.apontador."
+"com.br/accounts/app/create.html\">registering your app</a> at Apontador. "
+"There you can enter your website data and get your own key and secret pair."
 msgstr ""
-"Obter sua própria 'Consumer Key' e 'Consumer Secret' para seu blog é "
-"altamente recomendado"
-
-#: admin/settings_page.php:28
-msgid "Create a \"new application\" by editting your profile at apontador"
-msgstr "Crie uma \"nova aplicação\" editando seu perfil no apontador"
-
-#: admin/settings_page.php:28
-msgid ""
-"there you can enter your website data and get your own key and secret pair"
-msgstr ""
-"você poderá inserir os dados do seu site e obter seus próprios"
-"<em>consumer key</em> e <em>secret</em>"
-
-#: admin/settings_page.php:49
-msgid ""
-"The following codes are automagically generated, you don't need to worry "
-"about them"
-msgstr ""
-"Os códigos a seguir foram gerados <em>automagicamente</em>, você não precisa "
-"se preocupar com eles"
-
-#: admin/settings_page.php:71
-msgid "Save Changes"
-msgstr ""
-
-#: class/apontador.php:38
-msgid "Apontador"
-msgstr ""
-
-#: class/apontador.php:39
-msgid "Apontador Settings"
-msgstr "Configurações do Plugin do Apontador"
-
-#: widget/form.php:2
-msgid "Title:"
-msgstr ""
-
-#: widget/form.php:6
-msgid "How Many:"
-msgstr "Quantidade:"
-
-#: widget/form.php:10
-msgid "Max Length:"
-msgstr "Limite de Caracteres:"
-
-#: widget/page.php:5 widget/widget_class.php:42
-msgid "please, edit wp-apontador settings in your admin page"
-msgstr "por favor, edite as configurações do plugin wp-apontador "
-"em seu admin"
-
-#: widget/widget_class.php:10
-msgid "Display your reviews from Apontador"
-msgstr "Mostrar suas avaliações no Apontador"
-
-#: widget/widget_class.php:12
-msgid "Apontador Reviews"
-msgstr "Apontador - Avaliações"
-
-#: widget/widget_class.php:99
-msgid "more"
-msgstr ""
+"Obter seu próprio Consumer Key e Consumer Secret para o seu blog é altamente "
+"recomendado. Crie um novo aplicativo <a href=\"http://www.apontador.com.br/"
+"accounts/app/create.html\">cadastrando-o</a> no Apontador. Lá você poderá "
+"informar os dados do seu site e obter seu próprio Consumer Key e Consumer "
+"Secret"

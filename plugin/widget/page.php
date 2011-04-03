@@ -26,12 +26,12 @@
           echo str_repeat($empty_star_tag, 5 - (int)$item['review']['rating']);
         ?>
       <?php elseif ($showReviewGrade == 1): ?>
-        <small>&#8212; <?php echo $this->rating_labels[(int)$item['review']['rating']]; ?></small>
+        <small>&#8212; <?php echo $rating_labels[(int)$item['review']['rating']]; ?></small>
       <?php endif; ?>
 
       <?php if ($maxChars): ?>
         <p>
-          <?php echo $this->limit_str($item['review'], $maxChars, __("more")); ?>
+          <?php echo $this->limit_str($item['review'], $maxChars, __("more", "wp-apontador")); ?>
         </p>
       <?php endif; ?>
     </li>

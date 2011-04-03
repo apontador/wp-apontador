@@ -12,13 +12,6 @@ class ApontadorWidget extends WP_Widget
     $control_ops = array('width' => 300, 'height' => 300);
     $this->WP_Widget('apontador', __('Apontador Reviews', "wp-apontador"), $widget_ops, $control_ops);
 
-    $this->rating_labels = array(
-      1 => __("terrible", "wp-apontador"),
-      2 => __("bad", "wp-apontador"),
-      3 => __("regular", "wp-apontador"),
-      4 => __("good", "wp-apontador"),
-      5 => __("excelent", "wp-apontador")
-    );
   }
 
   /**
@@ -59,6 +52,13 @@ class ApontadorWidget extends WP_Widget
 
     $star_tag = "<img src=\"" . plugins_url('/images/star.png', dirname(__FILE__)) . "\" />";
     $empty_star_tag = "<img src=\"" . plugins_url('/images/mptystar.png', dirname(__FILE__)) . "\" />";
+    $rating_labels = array(
+      1 => __("terrible", "wp-apontador"),
+      2 => __("bad", "wp-apontador"),
+      3 => __("regular", "wp-apontador"),
+      4 => __("good", "wp-apontador"),
+      5 => __("excelent", "wp-apontador")
+    );
 
     include dirname(dirname(__FILE__)) . "/widget/page.php";
   }

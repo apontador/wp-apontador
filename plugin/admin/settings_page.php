@@ -36,7 +36,7 @@
   <table class="form-table">
     <tr>
       <th colspan=2>
-        <?php _e("Getting your own Consumer Key and Consumer secret for your blog is highly recommended. Create a \"new application\" by <a href=\"http://www.apontador.com.br/accounts/app/create.html\">registering your app</a> at Apontador. There you can enter your website data and get your own key and secret pair."); ?>
+        <?php _e("Getting your own Consumer Key and Consumer secret for your blog is highly recommended. Create a \"new application\" by <a href=\"http://www.apontador.com.br/accounts/app/create.html\">registering your app</a> at Apontador. There you can enter your website data and get your own key and secret pair.", "wp-apontador"); ?>
       </th>
     </tr>
     <tr valign="top">
