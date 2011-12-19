@@ -108,7 +108,7 @@ class ApontadorWidget extends WP_Widget
         $more_link_text = __('more');
       }
 
-      return substr($review['content'], 0, $length) . '...'
+      return mb_substr($review['content'], 0, $length) . '...'
         . " <a href=\"{$review['place']['main_url']}#{$review['id']}\">{$more_link_text}</a>";
     }
 
