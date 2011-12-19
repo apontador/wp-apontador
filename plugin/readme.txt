@@ -1,9 +1,9 @@
 === Plugin Name ===
-Contributors: eduardomacan
+Contributors: eduardomacan, apontador
 Tags: apontador, places, reviews
 Requires at least: 3.0.1
 Tested up to: 3.0.1
-Stable tag: 0.1.2
+Stable tag: trunk
 
 This plugin allows you to display apontador places and reviews on your site
 
